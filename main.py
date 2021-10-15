@@ -4,7 +4,7 @@ import boto3
 #タイトル
 st.subheader('串カツ田中料金シミュレーション')
 
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 table = dynamodb.Table('TanakaMenuDB')
 result = table.scan()
 result = sorted(result["Items"], key=lambda x:x['Kind'])
