@@ -1,0 +1,2 @@
+#deploy command
+aws cloudformation deploy --template template.json --stack-name Tanaka-stack --parameter-overrides BucketName=tanakamenubucket FileName=menulist.csv DynamoDBTableName=TanakaMenuDB --capabilities CAPABILITY_NAMED_IAM
