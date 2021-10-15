@@ -46,7 +46,8 @@ with st.sidebar:
                     total1 += int(item['Price']) * int(order_list[item["Menu"]])
                     total3 += int(item['Price']) * int(order_list[item["Menu"]])
                     total4 += int(item['Price']) * int(order_list[item["Menu"]])
-                
+    st.write("元料金 ： " + int(total2) + "円")
+    st.write(str(total1) + "円")           
     st.write("① : 240円以下の串を110円にした場合")
     st.write(str(total1) + "円")
     st.write("② : 会計の合計を10％オフにした場合")
