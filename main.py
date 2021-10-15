@@ -4,7 +4,10 @@ import boto3
 #タイトル
 st.subheader('串カツ田中料金シミュレーション')
 
-dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+dynamodb = boto3.resource('dynamodb',
+                        region_name='us-east-1',
+                        aws_access_key_id=st.secrets["ACCESS_KEY"],
+                        aws_secret_access_key= st.secrets["SECRET_KEY"])
 table = dynamodb.Table('TanakaMenuDB')
 result = table.scan()
 result = sorted(result["Items"], key=lambda x:x['Kind'])
