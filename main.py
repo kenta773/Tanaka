@@ -4,6 +4,7 @@ import boto3
 #タイトル
 st.subheader('串カツ田中')
 st.subheader('料金シミュレーション')
+st.text("※横画面推奨")
 
 dynamodb = boto3.resource('dynamodb',
                         region_name='us-east-1',
@@ -34,11 +35,11 @@ with st.sidebar:
         for item in result:
             if order_list[item["Menu"]] != 0:
                 total2 += int(item['Price']) * int(order_list[item["Menu"]])
-                if item["Kind"] == "0":
+                if item["Kind"] == "1":
                     total1 += 110 * int(order_list[item["Menu"]])
                     total3 += 110 * int(order_list[item["Menu"]])
                     total4 += int(item['Price']) * int(order_list[item["Menu"]])
-                elif item["Kind"] == "2":
+                elif item["Kind"] == "4":
                     total1 += int(item['Price']) * int(order_list[item["Menu"]])
                     total3 += 250 * int(order_list[item["Menu"]])
                     total4 += 250 * int(order_list[item["Menu"]])
